@@ -22,7 +22,7 @@ const authenticate = async (req, res, next) => {
 
   try {
     if (typeof JWT_SECRET !== "string") {
-      return res.status(500).json({
+      return res.status(404).json({
         msg: "JWT_SECRET not found"
       })
     }
