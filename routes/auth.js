@@ -99,4 +99,17 @@ router.post("/logout", authenticate, async(req, res)=> {
   })
 })
 
+router.delete("/user", async(req, res)=> {
+  try {
+    const {email} = req.body;
+    await User.findOneAndDelete({email});
+    res.status(204).send();
+  }
+  catch(error) {
+    res.status(404).json({
+      msg: `${req.body.email} not found`
+    })
+  }
+})
+
 module.exports = router;
