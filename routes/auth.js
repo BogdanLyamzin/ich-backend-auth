@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
     const token = jwt.sign(
       payload,
       process.env.JWT_SECRET, // Замените на ваш секретный ключ
-      { expiresIn: "1h" }
+      { expiresIn: "24h" }
     );
     user.token = token;
     await user.save();
@@ -71,7 +71,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       payload,
       process.env.JWT_SECRET, // Замените на ваш секретный ключ
-      { expiresIn: "1h" }
+      { expiresIn: "24h" }
     );
     user.token = token;
     await user.save();
